@@ -5,7 +5,7 @@ let base = gulp.env._[0] !== 'pro' ? './build' : './build_PRO';
 
 module.exports = {
     clean:{
-        src:base,
+        src:['./build_PRO/js', './build_PRO/style'],
     },
     html: {
         src:'./develop/app/**/*.html',

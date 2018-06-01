@@ -1,0 +1,9 @@
+{
+  "common/sqframe/sqframe.js": "common/sqframe/sqframe-7eef3dd549.js",
+  "js/home/home.js": "js/home/home-77ce759379.js",
+  "js/home/test.js": "js/home/test-febc1b1e68.js",
+  "plugins/es5-shim.min.js": "plugins/es5-shim-bf4c5371e0.min.js",
+  "plugins/jquery-1.11.2.min.js": "plugins/jquery-1-6f93275c99.11.2.min.js",
+  "plugins/jquery.cookie.js": "plugins/jquery-6788c3576c.cookie.js",
+  "plugins/polyfill.min.js": "plugins/polyfill-c6658227cb.min.js"
+}

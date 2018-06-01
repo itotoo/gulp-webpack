@@ -35,9 +35,9 @@ gulp.task('default',['dev']);
 // 执行打包发布任务
 gulp.task('pro', ['pro']);
 
-// 清除
+// 删除旧文件
 gulp.task('del',function (cb) {
-    del([ config.clean.src ],{force: true}, cb);
+    return del(config.clean.src)
 });
 
 // 处理css
@@ -75,7 +75,8 @@ gulp.task('script',function(cb){
 });
 // 处理html
 gulp.task('html', function() {
-    return gulp.src(['build/**/*.json', config.html.src])
+    let path = env === 'pro'? 'build_PRO/**/*.json' : 'build/**/*.json';
+    return gulp.src([ path , config.html.src])
     .pipe(changed(config.html.src))
     // 合并模板 
     .pipe(fileinclude({
@@ -113,6 +114,17 @@ gulp.task('data', function() {
 gulp.task('dev', function (done) {
     condition = false;
     runSequence(
+        ['css'],
+        ['script'],
+        ['images','html','plugin','common','data'],
+        ['watch','browser-sync'],
+        done);
+});
+// 提交开发
+gulp.task('pro', function (done) {
+    condition = false;
+    runSequence(
+        ['del'],
         ['css'],
         ['script'],
         ['images','html','plugin','common','data'],
